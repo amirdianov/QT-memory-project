@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>955</width>
-    <height>787</height>
+    <width>1000</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -61,7 +61,7 @@
          </property>
          <layout class="QGridLayout" name="gridLayout_5">
           <item row="0" column="0" alignment="Qt::AlignLeft">
-           <widget class="QPushButton" name="pushButton">
+           <widget class="QPushButton" name="back">
             <property name="minimumSize">
              <size>
               <width>200</width>
@@ -107,18 +107,9 @@
               <item>
                <widget class="QLabel" name="label_2">
                 <property name="styleSheet">
-                 <string notr="true">image: url(:/image/photo_2022-11-30_20-15-42.jpg);</string>
+                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+border-radius: 10px;</string>
                 </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="label">
                 <property name="text">
                  <string>TextLabel</string>
                 </property>
@@ -129,28 +120,22 @@
               </item>
               <item>
                <widget class="QLabel" name="label_3">
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
                 <property name="styleSheet">
-                 <string notr="true">border-color: qconicalgradient(cx:0, cy:0, angle:135, stop:0 rgba(255, 255, 0, 69), stop:0.375 rgba(255, 255, 0, 69), stop:0.423533 rgba(251, 255, 0, 145), stop:0.45 rgba(247, 255, 0, 208), stop:0.477581 rgba(255, 244, 71, 130), stop:0.518717 rgba(255, 218, 71, 130), stop:0.55 rgba(255, 255, 0, 255), stop:0.57754 rgba(255, 203, 0, 130), stop:0.625 rgba(255, 255, 0, 69), stop:1 rgba(255, 255, 0, 69));</string>
+                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+border-radius: 10px;
+</string>
                 </property>
                 <property name="text">
-                 <string/>
-                </property>
-                <property name="pixmap">
-                 <pixmap resource="images/images.qrc">:/image/vinni-pukh-v-png-256x256.png</pixmap>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
+                 <string>TextLabel</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="label_13">
+               <widget class="QLabel" name="label">
+                <property name="styleSheet">
+                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+border-radius: 10px;</string>
+                </property>
                 <property name="text">
                  <string>TextLabel</string>
                 </property>
@@ -160,7 +145,25 @@
                </widget>
               </item>
               <item>
+               <widget class="QLabel" name="label_13">
+                <property name="styleSheet">
+                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+border-radius: 10px;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
                <widget class="QLabel" name="label_14">
+                <property name="styleSheet">
+                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+border-radius: 10px;</string>
+                </property>
                 <property name="text">
                  <string>TextLabel</string>
                 </property>
@@ -171,6 +174,10 @@
               </item>
               <item>
                <widget class="QLabel" name="label_15">
+                <property name="styleSheet">
+                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+border-radius: 10px;</string>
+                </property>
                 <property name="text">
                  <string>TextLabel</string>
                 </property>
@@ -185,6 +192,11 @@
              <layout class="QHBoxLayout" name="horizontalLayout_4">
               <item>
                <widget class="QLabel" name="label_16">
+                <property name="styleSheet">
+                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+border-radius: 10px;
+</string>
+                </property>
                 <property name="text">
                  <string>TextLabel</string>
                 </property>
@@ -195,6 +207,10 @@
               </item>
               <item>
                <widget class="QLabel" name="label_17">
+                <property name="styleSheet">
+                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+border-radius: 10px;</string>
+                </property>
                 <property name="text">
                  <string>TextLabel</string>
                 </property>
@@ -205,6 +221,14 @@
               </item>
               <item>
                <widget class="QLabel" name="label_18">
+                <property name="styleSheet">
+                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+border-radius: 10px;
+
+
+
+</string>
+                </property>
                 <property name="text">
                  <string>TextLabel</string>
                 </property>
@@ -215,6 +239,10 @@
               </item>
               <item>
                <widget class="QLabel" name="label_19">
+                <property name="styleSheet">
+                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+border-radius: 10px;</string>
+                </property>
                 <property name="text">
                  <string>TextLabel</string>
                 </property>
@@ -225,6 +253,10 @@
               </item>
               <item>
                <widget class="QLabel" name="label_20">
+                <property name="styleSheet">
+                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+border-radius: 10px;</string>
+                </property>
                 <property name="text">
                  <string>TextLabel</string>
                 </property>
@@ -235,6 +267,10 @@
               </item>
               <item>
                <widget class="QLabel" name="label_21">
+                <property name="styleSheet">
+                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+border-radius: 10px;</string>
+                </property>
                 <property name="text">
                  <string>TextLabel</string>
                 </property>
@@ -249,6 +285,10 @@
              <layout class="QHBoxLayout" name="horizontalLayout_5">
               <item>
                <widget class="QLabel" name="label_22">
+                <property name="styleSheet">
+                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+border-radius: 10px;</string>
+                </property>
                 <property name="text">
                  <string>TextLabel</string>
                 </property>
@@ -259,6 +299,10 @@
               </item>
               <item>
                <widget class="QLabel" name="label_23">
+                <property name="styleSheet">
+                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+border-radius: 10px;</string>
+                </property>
                 <property name="text">
                  <string>TextLabel</string>
                 </property>
@@ -269,6 +313,11 @@
               </item>
               <item>
                <widget class="QLabel" name="label_24">
+                <property name="styleSheet">
+                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+border-radius: 10px;
+</string>
+                </property>
                 <property name="text">
                  <string>TextLabel</string>
                 </property>
@@ -279,6 +328,10 @@
               </item>
               <item>
                <widget class="QLabel" name="label_25">
+                <property name="styleSheet">
+                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+border-radius: 10px;</string>
+                </property>
                 <property name="text">
                  <string>TextLabel</string>
                 </property>
@@ -289,6 +342,10 @@
               </item>
               <item>
                <widget class="QLabel" name="label_26">
+                <property name="styleSheet">
+                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+border-radius: 10px;</string>
+                </property>
                 <property name="text">
                  <string>TextLabel</string>
                 </property>
@@ -299,6 +356,10 @@
               </item>
               <item>
                <widget class="QLabel" name="label_27">
+                <property name="styleSheet">
+                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+border-radius: 10px;</string>
+                </property>
                 <property name="text">
                  <string>TextLabel</string>
                 </property>
@@ -329,24 +390,49 @@
           <enum>QFrame::Raised</enum>
          </property>
          <layout class="QGridLayout" name="gridLayout_4">
-          <item row="0" column="0" alignment="Qt::AlignRight">
-           <widget class="QLCDNumber" name="lcdNumber">
-            <property name="minimumSize">
-             <size>
-              <width>200</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>300</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">background-color: rgb(85, 255, 0);</string>
-            </property>
-           </widget>
+          <item row="0" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <item alignment="Qt::AlignLeft">
+             <widget class="QLCDNumber" name="lcdNumber_2">
+              <property name="minimumSize">
+               <size>
+                <width>200</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>300</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(85, 255, 0);
+border-radius: 10px;</string>
+              </property>
+             </widget>
+            </item>
+            <item alignment="Qt::AlignRight">
+             <widget class="QLCDNumber" name="lcdNumber">
+              <property name="minimumSize">
+               <size>
+                <width>200</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>300</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">border-radius: 10px;
+background-color: rgba(252, 81, 79, 235);</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
          </layout>
         </widget>
@@ -361,7 +447,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>955</width>
+     <width>1000</width>
      <height>26</height>
     </rect>
    </property>
