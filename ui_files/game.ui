@@ -119,11 +119,21 @@
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+                 <string notr="true">border: 5px solid rgb(46, 139, 87);
 border-radius: 10px;</string>
                 </property>
                 <property name="text">
-                 <string>PushButton</string>
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/fruits.png</normaloff>../images/fruits.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
                 </property>
                </widget>
               </item>
@@ -136,11 +146,21 @@ border-radius: 10px;</string>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+                 <string notr="true">border: 5px solid rgb(46, 139, 87);
 border-radius: 10px;</string>
                 </property>
                 <property name="text">
-                 <string>PushButton</string>
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/fruits.png</normaloff>../images/fruits.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
                 </property>
                </widget>
               </item>
@@ -153,12 +173,21 @@ border-radius: 10px;</string>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">border: 3px solid rgb(0, 255, 0);
-border-radius: 10px;
-</string>
+                 <string notr="true">border: 5px solid rgb(46, 139, 87);
+border-radius: 10px;</string>
                 </property>
                 <property name="text">
-                 <string>PushButton</string>
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/fruits.png</normaloff>../images/fruits.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
                 </property>
                </widget>
               </item>
@@ -171,11 +200,21 @@ border-radius: 10px;
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+                 <string notr="true">border: 5px solid rgb(46, 139, 87);
 border-radius: 10px;</string>
                 </property>
                 <property name="text">
-                 <string>PushButton</string>
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/fruits.png</normaloff>../images/fruits.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
                 </property>
                </widget>
               </item>
@@ -188,11 +227,21 @@ border-radius: 10px;</string>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+                 <string notr="true">border: 5px solid rgb(46, 139, 87);
 border-radius: 10px;</string>
                 </property>
                 <property name="text">
-                 <string>PushButton</string>
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/fruits.png</normaloff>../images/fruits.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
                 </property>
                </widget>
               </item>
@@ -205,11 +254,21 @@ border-radius: 10px;</string>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+                 <string notr="true">border: 5px solid rgb(46, 139, 87);
 border-radius: 10px;</string>
                 </property>
                 <property name="text">
-                 <string>PushButton</string>
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/fruits.png</normaloff>../images/fruits.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
                 </property>
                </widget>
               </item>
@@ -226,11 +285,21 @@ border-radius: 10px;</string>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+                 <string notr="true">border: 5px solid rgb(46, 139, 87);
 border-radius: 10px;</string>
                 </property>
                 <property name="text">
-                 <string>PushButton</string>
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/fruits.png</normaloff>../images/fruits.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
                 </property>
                </widget>
               </item>
@@ -243,11 +312,21 @@ border-radius: 10px;</string>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+                 <string notr="true">border: 5px solid rgb(46, 139, 87);
 border-radius: 10px;</string>
                 </property>
                 <property name="text">
-                 <string>PushButton</string>
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/fruits.png</normaloff>../images/fruits.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
                 </property>
                </widget>
               </item>
@@ -260,11 +339,21 @@ border-radius: 10px;</string>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+                 <string notr="true">border: 5px solid rgb(46, 139, 87);
 border-radius: 10px;</string>
                 </property>
                 <property name="text">
-                 <string>PushButton</string>
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/fruits.png</normaloff>../images/fruits.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
                 </property>
                </widget>
               </item>
@@ -277,11 +366,21 @@ border-radius: 10px;</string>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+                 <string notr="true">border: 5px solid rgb(46, 139, 87);
 border-radius: 10px;</string>
                 </property>
                 <property name="text">
-                 <string>PushButton</string>
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/fruits.png</normaloff>../images/fruits.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
                 </property>
                </widget>
               </item>
@@ -294,12 +393,21 @@ border-radius: 10px;</string>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">border: 3px solid rgb(0, 255, 0);
-border-radius: 10px;
-</string>
+                 <string notr="true">border: 5px solid rgb(46, 139, 87);
+border-radius: 10px;</string>
                 </property>
                 <property name="text">
-                 <string>PushButton</string>
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/fruits.png</normaloff>../images/fruits.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
                 </property>
                </widget>
               </item>
@@ -312,13 +420,21 @@ border-radius: 10px;
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">border: 3px solid rgb(0, 255, 0);
-border-radius: 10px;
-
-</string>
+                 <string notr="true">border: 5px solid rgb(46, 139, 87);
+border-radius: 10px;</string>
                 </property>
                 <property name="text">
-                 <string>PushButton</string>
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/fruits.png</normaloff>../images/fruits.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
                 </property>
                </widget>
               </item>
@@ -335,12 +451,21 @@ border-radius: 10px;
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">border: 3px solid rgb(0, 255, 0);
-border-radius: 10px;
-</string>
+                 <string notr="true">border: 5px solid rgb(46, 139, 87);
+border-radius: 10px;</string>
                 </property>
                 <property name="text">
-                 <string>PushButton</string>
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/fruits.png</normaloff>../images/fruits.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
                 </property>
                </widget>
               </item>
@@ -353,12 +478,21 @@ border-radius: 10px;
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">border: 3px solid rgb(0, 255, 0);
-border-radius: 10px;
-</string>
+                 <string notr="true">border: 5px solid rgb(46, 139, 87);
+border-radius: 10px;</string>
                 </property>
                 <property name="text">
-                 <string>PushButton</string>
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/fruits.png</normaloff>../images/fruits.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
                 </property>
                </widget>
               </item>
@@ -371,11 +505,21 @@ border-radius: 10px;
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+                 <string notr="true">border: 5px solid rgb(46, 139, 87);
 border-radius: 10px;</string>
                 </property>
                 <property name="text">
-                 <string>PushButton</string>
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/fruits.png</normaloff>../images/fruits.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
                 </property>
                </widget>
               </item>
@@ -388,12 +532,21 @@ border-radius: 10px;</string>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">border: 3px solid rgb(0, 255, 0);
-border-radius: 10px;
-</string>
+                 <string notr="true">border: 5px solid rgb(46, 139, 87);
+border-radius: 10px;</string>
                 </property>
                 <property name="text">
-                 <string>PushButton</string>
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/fruits.png</normaloff>../images/fruits.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
                 </property>
                </widget>
               </item>
@@ -406,11 +559,15 @@ border-radius: 10px;
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+                 <string notr="true">border: 5px solid rgb(46, 139, 87);
 border-radius: 10px;</string>
                 </property>
                 <property name="text">
                  <string/>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/fruits.png</normaloff>../images/fruits.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -432,11 +589,15 @@ border-radius: 10px;</string>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+                 <string notr="true">border: 5px solid rgb(46, 139, 87);
 border-radius: 10px;</string>
                 </property>
                 <property name="text">
-                 <string>PushButton</string>
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/fruits.png</normaloff>../images/fruits.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -487,6 +648,26 @@ border-radius: 10px;</string>
               <property name="styleSheet">
                <string notr="true">background-color: rgb(85, 255, 0);
 border-radius: 10px;</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label">
+              <property name="font">
+               <font>
+                <family>Rockwell</family>
+                <pointsize>28</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">border: 5px solid rgb(85, 255, 0);
+border-radius: 10px;</string>
+              </property>
+              <property name="text">
+               <string>Your choise</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
               </property>
              </widget>
             </item>

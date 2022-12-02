@@ -22,7 +22,8 @@ class GameWindow(QMainWindow, GameWindowHandlers):
         super().__init__()
         uic.loadUi('ui_files/game.ui', self)  # Загружаем дизайн
         self.back.clicked.connect(self.go_menu_from_game)
-        self.pushButton_14.clicked.connect(self.set_image)
+        self.pushButton_14.clicked.connect(self.change_image)
+        self.pushButton_14.released.connect(self.hide_image)
 
     def go_menu_from_game(self):
         self.start = StartWindow()
