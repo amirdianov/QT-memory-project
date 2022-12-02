@@ -12,3 +12,8 @@ if __name__ == '__main__':
     ex = StartWindow()
     ex.show()
     sys.exit(app.exec())
+
+
+class ClickableLabel(QLabel):
+    def mousePressEvent(self, e):
+        print(1)
