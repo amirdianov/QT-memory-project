@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1000</width>
-    <height>800</height>
+    <width>1100</width>
+    <height>830</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>600</width>
-    <height>600</height>
+    <width>1100</width>
+    <height>830</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>16777215</width>
-    <height>16777215</height>
+    <width>1100</width>
+    <height>830</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -105,84 +105,111 @@
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout">
               <item>
-               <widget class="QLabel" name="label_2">
+               <widget class="QPushButton" name="pushButton_2">
+                <property name="minimumSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">border: 3px solid rgb(0, 255, 0);
 border-radius: 10px;</string>
                 </property>
                 <property name="text">
-                 <string>TextLabel</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
+                 <string>PushButton</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="label_3">
+               <widget class="QPushButton" name="pushButton_3">
+                <property name="minimumSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+border-radius: 10px;</string>
+                </property>
+                <property name="text">
+                 <string>PushButton</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_4">
+                <property name="minimumSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">border: 3px solid rgb(0, 255, 0);
 border-radius: 10px;
 </string>
                 </property>
                 <property name="text">
-                 <string>TextLabel</string>
+                 <string>PushButton</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="label">
+               <widget class="QPushButton" name="pushButton_5">
+                <property name="minimumSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">border: 3px solid rgb(0, 255, 0);
 border-radius: 10px;</string>
                 </property>
                 <property name="text">
-                 <string>TextLabel</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
+                 <string>PushButton</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="label_13">
+               <widget class="QPushButton" name="pushButton_6">
+                <property name="minimumSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">border: 3px solid rgb(0, 255, 0);
 border-radius: 10px;</string>
                 </property>
                 <property name="text">
-                 <string/>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
+                 <string>PushButton</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="label_14">
+               <widget class="QPushButton" name="pushButton_7">
+                <property name="minimumSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">border: 3px solid rgb(0, 255, 0);
 border-radius: 10px;</string>
                 </property>
                 <property name="text">
-                 <string>TextLabel</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="label_15">
-                <property name="styleSheet">
-                 <string notr="true">border: 3px solid rgb(0, 255, 0);
-border-radius: 10px;</string>
-                </property>
-                <property name="text">
-                 <string>TextLabel</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
+                 <string>PushButton</string>
                 </property>
                </widget>
               </item>
@@ -191,91 +218,107 @@ border-radius: 10px;</string>
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_4">
               <item>
-               <widget class="QLabel" name="label_16">
+               <widget class="QPushButton" name="pushButton_12">
+                <property name="minimumSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+border-radius: 10px;</string>
+                </property>
+                <property name="text">
+                 <string>PushButton</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_11">
+                <property name="minimumSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+border-radius: 10px;</string>
+                </property>
+                <property name="text">
+                 <string>PushButton</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_10">
+                <property name="minimumSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+border-radius: 10px;</string>
+                </property>
+                <property name="text">
+                 <string>PushButton</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_9">
+                <property name="minimumSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+border-radius: 10px;</string>
+                </property>
+                <property name="text">
+                 <string>PushButton</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_8">
+                <property name="minimumSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">border: 3px solid rgb(0, 255, 0);
 border-radius: 10px;
 </string>
                 </property>
                 <property name="text">
-                 <string>TextLabel</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
+                 <string>PushButton</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="label_17">
-                <property name="styleSheet">
-                 <string notr="true">border: 3px solid rgb(0, 255, 0);
-border-radius: 10px;</string>
+               <widget class="QPushButton" name="pushButton">
+                <property name="minimumSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
                 </property>
-                <property name="text">
-                 <string>TextLabel</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="label_18">
                 <property name="styleSheet">
                  <string notr="true">border: 3px solid rgb(0, 255, 0);
 border-radius: 10px;
 
-
-
 </string>
                 </property>
                 <property name="text">
-                 <string>TextLabel</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="label_19">
-                <property name="styleSheet">
-                 <string notr="true">border: 3px solid rgb(0, 255, 0);
-border-radius: 10px;</string>
-                </property>
-                <property name="text">
-                 <string>TextLabel</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="label_20">
-                <property name="styleSheet">
-                 <string notr="true">border: 3px solid rgb(0, 255, 0);
-border-radius: 10px;</string>
-                </property>
-                <property name="text">
-                 <string>TextLabel</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="label_21">
-                <property name="styleSheet">
-                 <string notr="true">border: 3px solid rgb(0, 255, 0);
-border-radius: 10px;</string>
-                </property>
-                <property name="text">
-                 <string>TextLabel</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
+                 <string>PushButton</string>
                 </property>
                </widget>
               </item>
@@ -284,87 +327,122 @@ border-radius: 10px;</string>
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_5">
               <item>
-               <widget class="QLabel" name="label_22">
-                <property name="styleSheet">
-                 <string notr="true">border: 3px solid rgb(0, 255, 0);
-border-radius: 10px;</string>
+               <widget class="QPushButton" name="pushButton_18">
+                <property name="minimumSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
                 </property>
-                <property name="text">
-                 <string>TextLabel</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="label_23">
-                <property name="styleSheet">
-                 <string notr="true">border: 3px solid rgb(0, 255, 0);
-border-radius: 10px;</string>
-                </property>
-                <property name="text">
-                 <string>TextLabel</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="label_24">
                 <property name="styleSheet">
                  <string notr="true">border: 3px solid rgb(0, 255, 0);
 border-radius: 10px;
 </string>
                 </property>
                 <property name="text">
-                 <string>TextLabel</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
+                 <string>PushButton</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="label_25">
+               <widget class="QPushButton" name="pushButton_17">
+                <property name="minimumSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+border-radius: 10px;
+</string>
+                </property>
+                <property name="text">
+                 <string>PushButton</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_16">
+                <property name="minimumSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">border: 3px solid rgb(0, 255, 0);
 border-radius: 10px;</string>
                 </property>
                 <property name="text">
-                 <string>TextLabel</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
+                 <string>PushButton</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="label_26">
+               <widget class="QPushButton" name="pushButton_15">
+                <property name="minimumSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border: 3px solid rgb(0, 255, 0);
+border-radius: 10px;
+</string>
+                </property>
+                <property name="text">
+                 <string>PushButton</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_14">
+                <property name="minimumSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">border: 3px solid rgb(0, 255, 0);
 border-radius: 10px;</string>
                 </property>
                 <property name="text">
-                 <string>TextLabel</string>
+                 <string/>
                 </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
+                <property name="iconSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
+                </property>
+                <property name="flat">
+                 <bool>false</bool>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="label_27">
+               <widget class="QPushButton" name="pushButton_13">
+                <property name="minimumSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">border: 3px solid rgb(0, 255, 0);
 border-radius: 10px;</string>
                 </property>
                 <property name="text">
-                 <string>TextLabel</string>
+                 <string>PushButton</string>
                 </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
+                <property name="iconSize">
+                 <size>
+                  <width>160</width>
+                  <height>160</height>
+                 </size>
                 </property>
                </widget>
               </item>
@@ -447,7 +525,7 @@ background-color: rgba(252, 81, 79, 235);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1000</width>
+     <width>1100</width>
      <height>26</height>
     </rect>
    </property>
@@ -455,7 +533,7 @@ background-color: rgba(252, 81, 79, 235);</string>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="images/images.qrc"/>
+  <include location="../images/images.qrc"/>
  </resources>
  <connections/>
 </ui>
