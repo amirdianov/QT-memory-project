@@ -21,9 +21,20 @@ class GameWindow(QMainWindow, GameWindowHandlers):
     def __init__(self):
         super().__init__()
         uic.loadUi('ui_files/game.ui', self)  # Загружаем дизайн
-        self.back.clicked.connect(self.go_out)
+        self.back.clicked.connect(self.go_menu_from_game)
 
-    def go_out(self):
+    def go_menu_from_game(self):
+        self.start = StartWindow()
+        self.close()
+        self.start.show()
+
+
+class FinishWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi('ui_files/ending_screen.ui', self)  # Загружаем дизайн
+
+    def go_menu_from_finish(self):
         self.start = StartWindow()
         self.close()
         self.start.show()
