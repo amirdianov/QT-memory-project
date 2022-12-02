@@ -1,8 +1,8 @@
 import sys
 
-from PyQt6.QtWidgets import QApplication
-
+from PyQt5.QtWidgets import QApplication
 from frontend.windows import StartWindow
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

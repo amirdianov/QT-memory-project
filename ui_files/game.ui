@@ -412,7 +412,7 @@ border-radius: 10px;</string>
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="pushButton">
+               <widget class="QPushButton" name="pushButton_1">
                 <property name="minimumSize">
                  <size>
                   <width>160</width>
@@ -707,14 +707,12 @@ background-color: rgba(252, 81, 79, 235);</string>
      <x>0</x>
      <y>0</y>
      <width>1100</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources>
-  <include location="../images/images.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
