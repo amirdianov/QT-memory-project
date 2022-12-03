@@ -25,10 +25,10 @@ class GameWindow(QMainWindow, GameWindowHandlers):
         self.timer = QTimer(self)
         self.back.clicked.connect(self.go_menu_from_game)
         for i in range(1, len(GameWindowHandlers.cards) + 1):
-            print(getattr(self, f'toggle_card{i}'))
-            getattr(self, f'pushButton_{i}', None).pressed.connect(getattr(self, f'toggle_card{i}'))
+            print(f'pushButton_{i}')
+            getattr(self, f'pushButton_{i}', None).clicked.connect(getattr(self, f'toggle_card{i}'))
         # self.pushButton_14.pressed.connect(self.change_image)
-        # self.timer.timeout.connect(self.hide_image)
+        self.timer.timeout.connect(self.hide_cards)
 
     def go_menu_from_game(self):
         self.start = StartWindow()

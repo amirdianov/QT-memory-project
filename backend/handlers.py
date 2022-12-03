@@ -9,7 +9,7 @@ FRUITS: list[str] = [img for img in os.listdir(os.path.join('images')) if img !=
 class GameWindowHandlers:
     cards: list[str] = [*[FRUITS[num] for num in range(9)],
                         *[FRUITS[num] for num in range(9)]]
-    shuffle(cards)
+    # shuffle(cards)
     is_toggled: list[bool] = [True] * 18
     is_chosen: list[int] = []
 
@@ -71,21 +71,36 @@ class GameWindowHandlers:
         #     print('i=', i)
         #     setattr(self, f'toggle_card{i}', lambda: self._toggle_card(card_num=i))
 
+    def _handle_player_turn(self, img: str):
+        for num in self.is_chosen:
+            card_button: QPushButton = getattr(self, f'pushButton_{num}', None)
+            card_button.setIcon(QIcon(os.path.join('images', img)))
+        self.is_chosen.clear()
+
+    def hide_cards(self):
+        self.timer.stop()
+        self._handle_player_turn('fruits.png')
+
+    def remove_cards(self):
+        self._handle_player_turn('')
+
     def _toggle_card(self, card_num: int):
         print(card_num)
         print(f'pushButton_{card_num}')
         card_button: QPushButton = getattr(self, f'pushButton_{card_num}', None)
         clicked_count: int = self.is_toggled.count(False)
+        print('clicked_count:', clicked_count)
         card_num -= 1
         if clicked_count < 2 and self.is_toggled[card_num]:
             card_button.setIcon(QIcon(os.path.join('images', self.cards[card_num])))
-            self.is_chosen.append(card_num)
+            if (len(self.is_chosen) and self.is_chosen[0] != card_num + 1) or len(self.is_chosen) == 0:
+                self.is_chosen.append(card_num + 1)
+                print(self.is_chosen)
             if clicked_count == 1:
-                if self.is_chosen[0] == self.is_chosen[1]:
-                    ...
+                if self.cards[self.is_chosen[0]] == self.cards[self.is_chosen[1]]:
+                    self.remove_cards()
                 else:
                     self.timer.start(1000)
-                self.is_chosen.clear()
         if clicked_count < 2:
             self.is_toggled[card_num] = not self.is_toggled[card_num]
 
