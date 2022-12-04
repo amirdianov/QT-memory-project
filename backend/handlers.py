@@ -1,9 +1,11 @@
 import os
 from random import shuffle
-from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QPushButton
+from typing import Optional
 
-FRUITS: list[str] = [img for img in os.listdir(os.path.join('images')) if img != 'fruits.png']
+from PyQt6.QtGui import QIcon
+from PyQt6.QtWidgets import QPushButton, QLCDNumber
+
+FRUITS: list[str] = [img for img in os.listdir(os.path.join('images')) if img != 'fruits.png' and img != 'image.qrc']
 
 
 class GameWindowHandlers:
@@ -67,22 +69,24 @@ class GameWindowHandlers:
     def toggle_card18(self):
         return self._toggle_card(18)
 
-        # for i in range(1, len(self.cards) + 1):
-        #     print('i=', i)
-        #     setattr(self, f'toggle_card{i}', lambda: self._toggle_card(card_num=i))
-
-    def _handle_player_turn(self, img: str):
+    def _handle_player_turn(self, img: Optional[str] = None):
         for num in self.is_chosen:
             card_button: QPushButton = getattr(self, f'pushButton_{num}', None)
-            card_button.setIcon(QIcon(os.path.join('images', img)))
+            if img is not None:
+                card_button.setIcon(QIcon(os.path.join('images', img)))
+            else:
+                card_button.setStyleSheet('border: 5px solid rgb(85, 255, 0); border-radius: 10px;')
+        if img is None:
+            lcd_number: QLCDNumber = getattr(self, f'lcdNumber_2', None)
+            lcd_number.display(lcd_number.intValue() + 1)
         self.is_chosen.clear()
 
     def hide_cards(self):
         self.timer.stop()
         self._handle_player_turn('fruits.png')
 
-    def remove_cards(self):
-        self._handle_player_turn('')
+    def open_cards(self):
+        self._handle_player_turn()
 
     def _toggle_card(self, card_num: int):
         print(card_num)
@@ -98,21 +102,8 @@ class GameWindowHandlers:
                 print(self.is_chosen)
             if clicked_count == 1:
                 if self.cards[self.is_chosen[0]] == self.cards[self.is_chosen[1]]:
-                    self.remove_cards()
+                    self.open_cards()
                 else:
                     self.timer.start(1000)
         if clicked_count < 2:
             self.is_toggled[card_num] = not self.is_toggled[card_num]
-
-    # def change_image(self):
-    #     print('тут')
-    #     if self.is_toggled:
-    #         self.pushButton_14.setIcon(QIcon(os.path.join('images', 'apple.png')))
-    #         self.timer.start(1000)
-    #     else:
-    #         self.pushButton_14.setIcon(QIcon(os.path.join('images', 'fruits.png')))
-    #     self.is_toggled = not self.is_toggled
-    #
-    # def hide_image(self):
-    #     self.timer.stop()
-    #     self.pushButton_14.click()
