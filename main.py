@@ -1,6 +1,6 @@
 import sys
 
-from PyQt6.QtWidgets import QApplication, QStackedWidget
+from PyQt5.QtWidgets import QApplication, QStackedWidget
 from frontend.windows import StartWindow
 from client import *
 

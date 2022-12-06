@@ -2,8 +2,8 @@ import os
 from random import shuffle
 from typing import Optional
 
-from PyQt6.QtGui import QIcon
-from PyQt6.QtWidgets import QPushButton, QLCDNumber
+from PyQt5.QtGui import QIcon
+from PyQt5.QtWidgets import QPushButton, QLCDNumber
 
 FRUITS: list[str] = [img for img in os.listdir(os.path.join('images')) if img != 'fruits.png' and img != 'image.qrc']
 
@@ -111,6 +111,7 @@ class GameWindowHandlers:
         self._handle_player_turn()
 
     def _toggle_card(self, card_num: int):
+        print('_toggle_card was called')
         print(card_num)
         print(f'pushButton_{card_num}')
         card_button: QPushButton = getattr(self, f'pushButton_{card_num}', None)

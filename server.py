@@ -16,15 +16,21 @@ messages_ready = []
 messages_cards_to_open = []
 messages_close = []
 
+
 def broadcast(message):
+    print("broadcast message:", message)
     if 'Ready'.encode('ascii') in messages_ready and len(messages_ready) == 2:
+        print('stage 1')
         for client in clients:
             client.send(message)
     elif len(messages_cards_to_open) != 0:
+        print('stage 2')
         for client in clients:
+            print("send message to client:", client)
             client.send(message)
         messages_cards_to_open.clear()
     elif 'Close'.encode('ascii') in messages_close:
+        print('stage 3')
         for client in clients:
             client.send(message)
         messages_close.clear()
@@ -57,4 +63,5 @@ def receive():
         thread.start()
 
 
-receive()
+if __name__ == '__main__':
+    receive()
