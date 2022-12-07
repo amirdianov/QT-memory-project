@@ -42,18 +42,21 @@ def broadcast(message):
                 clients[i].send(f'Play|{message}|OPPONENT TURN'.encode('ascii'))
         if len(messages_cards_to_open) == 2:
             messages_cards_to_open.clear()
-    elif 'Close'.encode('ascii') in messages_close:
-        print('stage 3')
-        for client in clients:
-            client.send(message)
-        # Вот идейно должно работать именно так
-        # queue_numb = str(1 - int(queue_numb))
-        # for i in range(len(clients)):
-        #     if i == int(queue_numb):
-        #         clients[i].send(f'Close|YOU TURN'.encode('ascii'))
-        #     else:
-        #         clients[i].send(f'Close|OPPONENT TURN'.encode('ascii'))
+    elif 'Close'.encode('ascii') in messages_close and len(messages_close) == 2:
+        # здесь два потока почему-то бегут друг за другом и close вызывался два раза
+        # поэтому я сразу очищаю, чтобы второй поток не забрадся сюда
+        # лютый костыль
         messages_close.clear()
+        # print('stage 3')
+        # for client in clients:
+        #     client.send(message)
+        # Вот идейно должно работать именно так
+        queue_numb = str(1 - int(queue_numb))
+        for i in range(len(clients)):
+            if i == int(queue_numb):
+                clients[i].send(f'Close|YOU TURN'.encode('ascii'))
+            else:
+                clients[i].send(f'Close|OPPONENT TURN'.encode('ascii'))
 
 
 def handle(client):

@@ -51,17 +51,18 @@ class ReceiverThread(QThread):
                     # переворот карточек
                     print(f'Хочу перевернуть эту карточку {message[1]}')
                     self.signal.emit(message[1])
-                if message == 'Close':
-                    ex2.hide_cards()
+                # if message == 'Close':
+                #     self.signal.emit('close')
                 # Идейно должно работать вот так
-                # if 'Close' in message:
-                #     message = message.split('|')
-                #     print(message, 'ВОТ ТАК РАЗБИЛОСЬ')
-                #     if 'YOU TURN' in message[1]:
-                #         ex2.queue_turn_true(message[1])
-                #     elif 'OPPONENT TURN' in message[1]:
-                #         ex2.queue_turn_false(message[1])
-                #     ex2.hide_cards()
+                if 'Close' in message:
+                    message = message.split('|')
+                    print(message, 'ВОТ ТАК РАЗБИЛОСЬ')
+                    if 'YOU TURN' in message[1]:
+                        ex2.queue_turn_true(message[1])
+                    elif 'OPPONENT TURN' in message[1]:
+                        ex2.queue_turn_false(message[1])
+                    self.signal.emit('close')
+                    #     ex2.hide_cards()
             except Exception as exc:
                 print(exc)
                 print('ОШИБКА')
@@ -89,6 +90,8 @@ class MemoryGameStart(StartWindow):
         print('message;', message)
         if message in [str(i) for i in range(20)]:
             ex2._toggle_card(int(message))
+        else:
+            ex2.hide_cards()
 
     def open_game(self):
         window.setCurrentIndex(window.currentIndex() + 1)

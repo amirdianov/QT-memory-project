@@ -1,9 +1,10 @@
 import os
+import time
 from random import shuffle
 from typing import Optional
 
 from PyQt6.QtGui import QIcon
-from PyQt6.QtWidgets import QPushButton, QLCDNumber
+from PyQt6.QtWidgets import QPushButton, QLCDNumber, QApplication
 
 FRUITS: list[str] = [img for img in os.listdir(os.path.join('images')) if img != 'fruits.png' and img != 'image.qrc']
 
@@ -129,3 +130,4 @@ class GameWindowHandlers:
                     self.open_cards()
                 else:
                     self.timer.start(1000)
+                    # QApplication.processEvents()
