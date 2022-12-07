@@ -32,23 +32,28 @@ def broadcast(message):
         messages_ready.clear()
     elif len(messages_cards_to_open) != 0:
         print('stage 2')
-        for client in clients:
-            print("send message to client:", client)
-            for i in range(len(clients)):
-                if type(message) == bytes:
-                    message = message.decode('ascii')
-                if i == int(queue_numb):
-                    clients[i].send(f'Play|{message}|YOU TURN'.encode('ascii'))
-                else:
-                    clients[i].send(f'Play|{message}|OPPONENT TURN'.encode('ascii'))
+        for i in range(len(clients)):
+            print("send message to client:", clients[i])
+            if type(message) == bytes:
+                message = message.decode('ascii')
+            if i == int(queue_numb):
+                clients[i].send(f'Play|{message}|YOU TURN'.encode('ascii'))
+            else:
+                clients[i].send(f'Play|{message}|OPPONENT TURN'.encode('ascii'))
         if len(messages_cards_to_open) == 2:
             messages_cards_to_open.clear()
     elif 'Close'.encode('ascii') in messages_close:
         print('stage 3')
         for client in clients:
             client.send(message)
+        # Вот идейно должно работать именно так
+        # queue_numb = str(1 - int(queue_numb))
+        # for i in range(len(clients)):
+        #     if i == int(queue_numb):
+        #         clients[i].send(f'Close|YOU TURN'.encode('ascii'))
+        #     else:
+        #         clients[i].send(f'Close|OPPONENT TURN'.encode('ascii'))
         messages_close.clear()
-        queue_numb = str(1 - int(queue_numb))
 
 
 def handle(client):

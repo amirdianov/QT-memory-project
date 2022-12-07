@@ -118,12 +118,12 @@ class GameWindowHandlers:
         clicked_count: int = len(self.is_chosen)
         print('clicked_count:', clicked_count)
         card_num -= 1
-        if self.is_toggled[card_num] and clicked_count <= 2:
+        if self.is_toggled[card_num] and clicked_count < 2:
             card_button.setIcon(QIcon(os.path.join('images', self.cards[card_num])))
             if len(self.is_chosen) == 0 or (len(self.is_chosen) and self.is_chosen[0] != card_num + 1):
                 self.is_chosen.append(card_num + 1)
                 print(self.is_chosen)
-            if clicked_count == 2:
+            if clicked_count == 1:
                 print('is_chosen:', self.is_chosen, self.cards)
                 if self.cards[self.is_chosen[0] - 1] == self.cards[self.is_chosen[1] - 1]:
                     self.open_cards()

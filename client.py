@@ -51,12 +51,17 @@ class ReceiverThread(QThread):
                     # переворот карточек
                     print(f'Хочу перевернуть эту карточку {message[1]}')
                     self.signal.emit(message[1])
-                    if len(message) > 2 and 'YOU TURN' in message[2]:
-                        ex2.queue_turn_true(message[2])
-                    elif len(message) > 2 and 'OPPONENT TURN' in message[2]:
-                        ex2.queue_turn_false(message[2])
                 if message == 'Close':
                     ex2.hide_cards()
+                # Идейно должно работать вот так
+                # if 'Close' in message:
+                #     message = message.split('|')
+                #     print(message, 'ВОТ ТАК РАЗБИЛОСЬ')
+                #     if 'YOU TURN' in message[1]:
+                #         ex2.queue_turn_true(message[1])
+                #     elif 'OPPONENT TURN' in message[1]:
+                #         ex2.queue_turn_false(message[1])
+                #     ex2.hide_cards()
             except Exception as exc:
                 print(exc)
                 print('ОШИБКА')
