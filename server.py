@@ -15,25 +15,40 @@ nicknames = []
 messages_ready = []
 messages_cards_to_open = []
 messages_close = []
+queue_numb = '0'
 
 
 def broadcast(message):
+    global queue_numb
     print("broadcast message:", message)
     if 'Ready'.encode('ascii') in messages_ready and len(messages_ready) == 2:
         print('stage 1')
-        for client in clients:
-            client.send(message)
+        print(clients)
+        for i in range(len(clients)):
+            if i == int(queue_numb):
+                clients[i].send(f'READY|YOU TURN'.encode('ascii'))
+            else:
+                clients[i].send(f'READY|OPPONENT TURN'.encode('ascii'))
+        messages_ready.clear()
     elif len(messages_cards_to_open) != 0:
         print('stage 2')
         for client in clients:
             print("send message to client:", client)
-            client.send(message)
-        messages_cards_to_open.clear()
+            for i in range(len(clients)):
+                if type(message) == bytes:
+                    message = message.decode('ascii')
+                if i == int(queue_numb):
+                    clients[i].send(f'Play|{message}|YOU TURN'.encode('ascii'))
+                else:
+                    clients[i].send(f'Play|{message}|OPPONENT TURN'.encode('ascii'))
+        if len(messages_cards_to_open) == 2:
+            messages_cards_to_open.clear()
     elif 'Close'.encode('ascii') in messages_close:
         print('stage 3')
         for client in clients:
             client.send(message)
         messages_close.clear()
+        queue_numb = str(1 - int(queue_numb))
 
 
 def handle(client):
@@ -47,7 +62,8 @@ def handle(client):
             elif message == 'Close'.encode('ascii'):
                 messages_close.append(message)
             broadcast(message)
-        except:
+        except Exception as ex:
+            print(ex)
             print('ПОЛЬЗОВАТЕЛЬ ВЫШЕЛ ИЗ ИГРЫ')
             break
 
@@ -59,8 +75,11 @@ def receive():
 
         clients.append(client)
         print(clients)
-        thread = threading.Thread(target=handle, args=(client,))
-        thread.start()
+        if len(clients) <= 2:
+            thread = threading.Thread(target=handle, args=(client,))
+            thread.start()
+        else:
+            print('Увы, вы лишний')
 
 
 if __name__ == '__main__':
