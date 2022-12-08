@@ -1,8 +1,8 @@
 import socket
 import sys
 
-from PyQt5.QtCore import QThread, QTimer, pyqtSignal
-from PyQt5.QtWidgets import QMainWindow, QApplication, QStackedWidget
+from PyQt6.QtCore import QThread, QTimer, pyqtSignal
+from PyQt6.QtWidgets import QMainWindow, QApplication, QStackedWidget
 
 from backend.handlers import GameWindowHandlers
 from frontend.windows import StartWindow, GameWindow, FinishWindow

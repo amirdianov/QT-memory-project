@@ -4,12 +4,12 @@ from random import shuffle
 from socket import socket
 from typing import Optional
 
-from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QPushButton, QLCDNumber, QApplication
+from PyQt6.QtGui import QIcon
+from PyQt6.QtWidgets import QPushButton, QLCDNumber, QApplication
 
 
 
-FRUITS: list[str] = [img for img in os.listdir(os.path.join('images')) if img != 'fruits.png' and img != 'image.qrc']
+FRUITS: list[str] = [img for img in os.listdir(os.path.join('images')) if img != 'fruits.png' and img != 'images.qrc']
 
 
 class GameWindowHandlers:

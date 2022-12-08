@@ -15,7 +15,6 @@ nicknames = []
 messages_ready = []
 messages_cards_to_open = []
 messages_close = []
-points: list[int] = []
 queue_numb = '0'
 
 
