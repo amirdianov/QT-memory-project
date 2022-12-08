@@ -8,7 +8,6 @@ from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QPushButton, QLCDNumber, QApplication
 
 
-
 FRUITS: list[str] = [img for img in os.listdir(os.path.join('images')) if img != 'fruits.png' and img != 'image.qrc']
 
 
@@ -94,6 +93,10 @@ class GameWindowHandlers:
     def open_card_number(self, num_card):
         pass
 
+    def edit_label(self, is_mine: bool):
+        label = getattr(self, 'label', None)
+        label.setText(('Your' if is_mine else 'Opponent') + ' turn')
+
     def _handle_player_turn(self, img: Optional[str] = None, is_mine: bool = True):
         for num in self.is_chosen:
             card_button: QPushButton = getattr(self, f'pushButton_{num}', None)
@@ -105,11 +108,12 @@ class GameWindowHandlers:
         if img is None:
             lcd_number: QLCDNumber = getattr(self, 'lcdNumber' + ('_2' if is_mine else ''), None)
             lcd_number.display(lcd_number.intValue() + 1)
+        self.edit_label(is_mine)
         self.is_chosen.clear()
 
-    def hide_cards(self):
+    def hide_cards(self, is_mine=True):
         self.timer.stop()
-        self._handle_player_turn('fruits.png')
+        self._handle_player_turn('fruits.png', is_mine=is_mine)
 
     def open_cards(self, is_mine=True):
         self._handle_player_turn(is_mine=is_mine)

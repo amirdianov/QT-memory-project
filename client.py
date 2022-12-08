@@ -44,8 +44,10 @@ class ReceiverThread(QThread):
                     print('ВЫВОД СООБЩЕНИЯ О ГОТОВНОСТИ К ИГРЕ', message)
                     if 'YOU TURN' in message[1]:
                         ex2.queue_turn_true(message[1])
+                        ex2.edit_label(True)
                     elif 'OPPONENT TURN' in message[1]:
                         ex2.queue_turn_false(message[1])
+                        ex2.edit_label(False)
                 if 'Play' in message:
                     message = message.split('|')
                     # переворот карточек
@@ -61,7 +63,7 @@ class ReceiverThread(QThread):
                         ex2.queue_turn_true(message[1])
                     elif 'OPPONENT TURN' in message[1]:
                         ex2.queue_turn_false(message[1])
-                    self.signal.emit('close')
+                    self.signal.emit('close|' + message[-1])
                     #     ex2.hide_cards()
             except Exception as exc:
                 print(exc)
@@ -88,8 +90,10 @@ class MemoryGameStart(StartWindow):
     def update_window(self, message: str) -> None:
         print('!!!!updated!!!!')
         print('message;', message)
-        if message == 'close':
-            ex2.hide_cards()
+        if 'close' in message:
+            is_mine = message.split('|')[-1] == 'YOU TURN'
+            print('hide_cards was called inside update_window method')
+            ex2.hide_cards(is_mine=is_mine)
             return
         number, turn = message.split('|')
         if number in [str(i) for i in range(20)]:
