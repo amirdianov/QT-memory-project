@@ -7,8 +7,6 @@ from typing import Optional
 from PyQt6.QtGui import QIcon
 from PyQt6.QtWidgets import QPushButton, QLCDNumber, QApplication
 
-
-
 FRUITS: list[str] = [img for img in os.listdir(os.path.join('images')) if img != 'fruits.png' and img != 'images.qrc']
 
 
@@ -97,6 +95,8 @@ class GameWindowHandlers:
     def edit_label(self, is_mine: bool):
         label = getattr(self, 'label', None)
         label.setText(('Your' if is_mine else 'Opponent') + ' turn')
+        label.setStyleSheet('border: 5px solid rgb(85, 255, 0); border-radius: 10px;' if is_mine else
+                            'border: 5px solid rgba(252, 81, 79, 235); border-radius: 10px;')
 
     def _handle_player_turn(self, img: Optional[str] = None, is_mine: bool = True):
         for num in self.is_chosen:
@@ -109,6 +109,10 @@ class GameWindowHandlers:
         if img is None:
             lcd_number: QLCDNumber = getattr(self, 'lcdNumber' + ('_2' if is_mine else ''), None)
             lcd_number.display(lcd_number.intValue() + 1)
+            for num in self.is_chosen:
+                card_button: QPushButton = getattr(self, f'pushButton_{num}', None)
+                card_button.setStyleSheet('border: 5px solid rgb(85, 255, 0); border-radius: 10px;' if is_mine else
+                                          'border: 5px solid rgba(252, 81, 79, 235); border-radius: 10px;')
         self.edit_label(is_mine)
         self.edit_label(is_mine)
         self.is_chosen.clear()
