@@ -4,11 +4,12 @@ from random import shuffle
 from socket import socket
 from typing import Optional
 
-from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QPushButton, QLCDNumber, QApplication
+from PyQt6.QtGui import QIcon
+from PyQt6.QtWidgets import QPushButton, QLCDNumber, QApplication
 
 
-FRUITS: list[str] = [img for img in os.listdir(os.path.join('images')) if img != 'fruits.png' and img != 'image.qrc']
+
+FRUITS: list[str] = [img for img in os.listdir(os.path.join('images')) if img != 'fruits.png' and img != 'images.qrc']
 
 
 class GameWindowHandlers:
@@ -97,6 +98,10 @@ class GameWindowHandlers:
         label = getattr(self, 'label', None)
         label.setText(('Your' if is_mine else 'Opponent') + ' turn')
 
+    def edit_label(self, is_mine: bool):
+        label = getattr(self, 'label', None)
+        label.setText(('Your' if is_mine else 'Opponent') + ' turn')
+
     def _handle_player_turn(self, img: Optional[str] = None, is_mine: bool = True):
         for num in self.is_chosen:
             card_button: QPushButton = getattr(self, f'pushButton_{num}', None)
@@ -108,6 +113,7 @@ class GameWindowHandlers:
         if img is None:
             lcd_number: QLCDNumber = getattr(self, 'lcdNumber' + ('_2' if is_mine else ''), None)
             lcd_number.display(lcd_number.intValue() + 1)
+        self.edit_label(is_mine)
         self.edit_label(is_mine)
         self.is_chosen.clear()
 
