@@ -98,10 +98,6 @@ class GameWindowHandlers:
         label = getattr(self, 'label', None)
         label.setText(('Your' if is_mine else 'Opponent') + ' turn')
 
-    def edit_label(self, is_mine: bool):
-        label = getattr(self, 'label', None)
-        label.setText(('Your' if is_mine else 'Opponent') + ' turn')
-
     def _handle_player_turn(self, img: Optional[str] = None, is_mine: bool = True):
         for num in self.is_chosen:
             card_button: QPushButton = getattr(self, f'pushButton_{num}', None)
