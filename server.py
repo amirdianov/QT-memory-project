@@ -15,6 +15,7 @@ nicknames = []
 messages_ready = []
 messages_cards_to_open = []
 messages_close = []
+points: list[int] = []
 queue_numb = '0'
 
 
@@ -37,9 +38,9 @@ def broadcast(message):
             if type(message) == bytes:
                 message = message.decode('ascii')
             if i == int(queue_numb):
-                clients[i].send(f'Play|{message}|YOU TURN'.encode('ascii'))
+                clients[i].send(f'Play|{message}|YOU TURN|'.encode('ascii'))
             else:
-                clients[i].send(f'Play|{message}|OPPONENT TURN'.encode('ascii'))
+                clients[i].send(f'Play|{message}|OPPONENT TURN|'.encode('ascii'))
         if len(messages_cards_to_open) == 2:
             messages_cards_to_open.clear()
     elif 'Close'.encode('ascii') in messages_close and len(messages_close) == 2:

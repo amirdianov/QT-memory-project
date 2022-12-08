@@ -1,10 +1,13 @@
 import os
 import time
 from random import shuffle
+from socket import socket
 from typing import Optional
 
-from PyQt6.QtGui import QIcon
-from PyQt6.QtWidgets import QPushButton, QLCDNumber, QApplication
+from PyQt5.QtGui import QIcon
+from PyQt5.QtWidgets import QPushButton, QLCDNumber, QApplication
+
+
 
 FRUITS: list[str] = [img for img in os.listdir(os.path.join('images')) if img != 'fruits.png' and img != 'image.qrc']
 
@@ -91,7 +94,7 @@ class GameWindowHandlers:
     def open_card_number(self, num_card):
         pass
 
-    def _handle_player_turn(self, img: Optional[str] = None):
+    def _handle_player_turn(self, img: Optional[str] = None, is_mine: bool = True):
         for num in self.is_chosen:
             card_button: QPushButton = getattr(self, f'pushButton_{num}', None)
             if img is not None:
@@ -100,7 +103,7 @@ class GameWindowHandlers:
                 card_button.setStyleSheet('border: 5px solid rgb(85, 255, 0); border-radius: 10px;')
                 self.is_toggled[num - 1] = False
         if img is None:
-            lcd_number: QLCDNumber = getattr(self, f'lcdNumber_2', None)
+            lcd_number: QLCDNumber = getattr(self, 'lcdNumber' + ('_2' if is_mine else ''), None)
             lcd_number.display(lcd_number.intValue() + 1)
         self.is_chosen.clear()
 
@@ -108,10 +111,10 @@ class GameWindowHandlers:
         self.timer.stop()
         self._handle_player_turn('fruits.png')
 
-    def open_cards(self):
-        self._handle_player_turn()
+    def open_cards(self, is_mine=True):
+        self._handle_player_turn(is_mine=is_mine)
 
-    def _toggle_card(self, card_num: int):
+    def _toggle_card(self, card_num: int, turn: str):
         print('_toggle_card was called')
         print(card_num)
         print(f'pushButton_{card_num}')
@@ -127,7 +130,8 @@ class GameWindowHandlers:
             if clicked_count == 1:
                 print('is_chosen:', self.is_chosen, self.cards)
                 if self.cards[self.is_chosen[0] - 1] == self.cards[self.is_chosen[1] - 1]:
-                    self.open_cards()
+                    is_mine: bool = turn == 'YOU TURN'
+                    self.open_cards(is_mine)
                 else:
                     self.timer.start(1000)
                     # QApplication.processEvents()

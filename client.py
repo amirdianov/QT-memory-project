@@ -1,8 +1,8 @@
 import socket
 import sys
 
-from PyQt6.QtCore import QThread, QTimer, pyqtSignal
-from PyQt6.QtWidgets import QMainWindow, QApplication, QStackedWidget
+from PyQt5.QtCore import QThread, QTimer, pyqtSignal
+from PyQt5.QtWidgets import QMainWindow, QApplication, QStackedWidget
 
 from backend.handlers import GameWindowHandlers
 from frontend.windows import StartWindow, GameWindow, FinishWindow
@@ -50,7 +50,7 @@ class ReceiverThread(QThread):
                     message = message.split('|')
                     # переворот карточек
                     print(f'Хочу перевернуть эту карточку {message[1]}')
-                    self.signal.emit(message[1])
+                    self.signal.emit(message[1] + '|' + message[-2])
                 # if message == 'Close':
                 #     self.signal.emit('close')
                 # Идейно должно работать вот так
@@ -88,10 +88,13 @@ class MemoryGameStart(StartWindow):
     def update_window(self, message: str) -> None:
         print('!!!!updated!!!!')
         print('message;', message)
-        if message in [str(i) for i in range(20)]:
-            ex2._toggle_card(int(message))
-        else:
+        if message == 'close':
             ex2.hide_cards()
+            return
+        number, turn = message.split('|')
+        if number in [str(i) for i in range(20)]:
+            ex2._toggle_card(int(number), turn)
+
 
     def open_game(self):
         window.setCurrentIndex(window.currentIndex() + 1)
