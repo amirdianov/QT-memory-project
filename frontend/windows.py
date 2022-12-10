@@ -28,7 +28,4 @@ class FinishWindow(QMainWindow):
         super().__init__()
         uic.loadUi('ui_files/ending_screen.ui', self)  # Загружаем дизайн
 
-    def go_menu_from_finish(self):
-        self.start = StartWindow()
-        self.close()
-        self.start.show()
+

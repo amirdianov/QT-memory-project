@@ -7,24 +7,8 @@ from PyQt6.QtWidgets import QMainWindow, QApplication, QStackedWidget
 from backend.handlers import GameWindowHandlers
 from frontend.windows import StartWindow, GameWindow, FinishWindow
 
-# from server import clients
-
 CLIENT = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 CONNECTION = ('127.0.0.1', 5060)
-
-
-# def clients_mas(mas):
-#     global CLIENTS
-#     CLIENTS = parse(mas)
-
-
-def parse(x) -> list[int]:
-    x = x[1:-1]
-    x = x.split('>, <')
-    # print(x)
-    x[0] += '>'
-    x[1] = '<' + x[1]
-    return x
 
 
 class ReceiverThread(QThread):
@@ -53,9 +37,6 @@ class ReceiverThread(QThread):
                     # переворот карточек
                     print(f'Хочу перевернуть эту карточку {message[1]}')
                     self.signal.emit(message[1] + '|' + message[-2])
-                # if message == 'Close':
-                #     self.signal.emit('close')
-                # Идейно должно работать вот так
                 if 'Close' in message:
                     message = message.split('|')
                     print(message, 'ВОТ ТАК РАЗБИЛОСЬ')
@@ -64,7 +45,12 @@ class ReceiverThread(QThread):
                     elif 'OPPONENT TURN' in message[1]:
                         ex2.queue_turn_false(message[1])
                     self.signal.emit('close|' + message[-1])
-                    #     ex2.hide_cards()
+                if 'Finish' in message:
+                    message = message.split('|')
+                    if 'True' in message[1]:
+                        ex3.win_window()
+                    elif 'False' in message[1]:
+                        ex3.lose_window()
             except Exception as exc:
                 print(exc)
                 print('ОШИБКА')
@@ -98,7 +84,6 @@ class MemoryGameStart(StartWindow):
         number, turn = message.split('|')
         if number in [str(i) for i in range(20)]:
             ex2._toggle_card(int(number), turn)
-
 
     def open_game(self):
         window.setCurrentIndex(window.currentIndex() + 1)
@@ -134,10 +119,34 @@ class MemoryGame(GameWindow):
         for i in range(1, len(GameWindowHandlers.cards) + 1):
             getattr(self, f'pushButton_{i}', None).setEnabled(True)
 
+    def go_finish_from_game(self):
+        super().go_finish_from_game()
+        window.setCurrentIndex(window.currentIndex() + 1)
+
+    def finish_send(self, message_bool):
+        super().finish_send(message_bool)
+        print("Вот такое сообщение отправляю", message_bool)
+        message = 'Finish|' + message_bool
+        print("Вот такое сообщение отправляю", message)
+        self.client.send(message.encode('ascii'))
+
 
 class MemoryGameFinish(FinishWindow):
     def __init__(self):
         super().__init__()
+        self.pushButton.clicked.connect(self.go_menu_from_finish)
+
+    def lose_window(self):
+        self.setStyleSheet('background-color: rgba(252, 81, 79, 235);')
+        self.label.setText('You lose...')
+
+    def win_window(self):
+        print('Я зашел в победу')
+        self.setStyleSheet('background-color: rgb(85, 255, 0);')
+        self.label.setText('You win!')
+
+    def go_menu_from_finish(self):
+        window.setCurrentIndex(window.currentIndex() - 2)
 
 
 if __name__ == '__main__':

@@ -8,6 +8,7 @@ from PyQt6.QtGui import QIcon
 from PyQt6.QtWidgets import QPushButton, QLCDNumber, QApplication
 
 FRUITS: list[str] = [img for img in os.listdir(os.path.join('images')) if img != 'fruits.png' and img != 'images.qrc']
+OPENED_CARDS: list[str] = []
 
 
 class GameWindowHandlers:
@@ -19,75 +20,57 @@ class GameWindowHandlers:
 
     def toggle_card1(self):
         self.open_card_number(1)
-        # return self._toggle_card(1)
 
     def toggle_card2(self):
         self.open_card_number(2)
-        # return self._toggle_card(2)
 
     def toggle_card3(self):
         self.open_card_number(3)
-        # return self._toggle_card(3)
 
     def toggle_card4(self):
         self.open_card_number(4)
-        # return self._toggle_card(4)
 
     def toggle_card5(self):
         self.open_card_number(5)
-        # return self._toggle_card(5)
 
     def toggle_card6(self):
         self.open_card_number(6)
-        # return self._toggle_card(6)
 
     def toggle_card7(self):
         self.open_card_number(7)
-        # return self._toggle_card(7)
 
     def toggle_card8(self):
         self.open_card_number(8)
-        # return self._toggle_card(8)
 
     def toggle_card9(self):
         self.open_card_number(9)
-        # return self._toggle_card(9)
 
     def toggle_card10(self):
         self.open_card_number(10)
-        # return self._toggle_card(10)
 
     def toggle_card11(self):
         self.open_card_number(11)
-        # return self._toggle_card(11)
 
     def toggle_card12(self):
         self.open_card_number(12)
-        # return self._toggle_card(12)
 
     def toggle_card13(self):
         self.open_card_number(13)
-        # return self._toggle_card(13)
 
     def toggle_card14(self):
         self.open_card_number(14)
-        # return self._toggle_card(14)
 
     def toggle_card15(self):
         self.open_card_number(15)
-        # return self._toggle_card(15)
 
     def toggle_card16(self):
         self.open_card_number(16)
-        # return self._toggle_card(16)
 
     def toggle_card17(self):
         self.open_card_number(17)
-        # return self._toggle_card(17)
 
     def toggle_card18(self):
         self.open_card_number(18)
-        # return self._toggle_card(18)
 
     def open_card_number(self, num_card):
         pass
@@ -124,6 +107,12 @@ class GameWindowHandlers:
     def open_cards(self, is_mine=True):
         self._handle_player_turn(is_mine=is_mine)
 
+    def go_finish_from_game(self):
+        pass
+
+    def finish_send(self, message):
+        pass
+
     def _toggle_card(self, card_num: int, turn: str):
         print('_toggle_card was called')
         print(card_num)
@@ -141,7 +130,14 @@ class GameWindowHandlers:
                 print('is_chosen:', self.is_chosen, self.cards)
                 if self.cards[self.is_chosen[0] - 1] == self.cards[self.is_chosen[1] - 1]:
                     is_mine: bool = turn == 'YOU TURN'
-                    self.open_cards(is_mine)
+                    OPENED_CARDS.extend([self.cards[self.is_chosen[0] - 1], self.cards[self.is_chosen[1] - 1]])
+                    if len(OPENED_CARDS) == 18:
+                        lcd_number_mine: QLCDNumber = getattr(self, 'lcdNumber_2', None)
+                        lcd_number_opponent: QLCDNumber = getattr(self, 'lcdNumber', None)
+                        self.go_finish_from_game()
+                        ans = lcd_number_mine.value() > lcd_number_opponent.value()
+                        self.finish_send(str(ans))
+                    else:
+                        self.open_cards(is_mine)
                 else:
                     self.timer.start(1000)
-                    # QApplication.processEvents()

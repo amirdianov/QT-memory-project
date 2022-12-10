@@ -1,4 +1,3 @@
-# в целом тот же server.py, что и на предыдущей паре
 import os
 import socket
 import threading
@@ -11,10 +10,10 @@ server.bind((host, port))
 server.listen()
 
 clients = []
-nicknames = []
 messages_ready = []
 messages_cards_to_open = []
 messages_close = []
+messages_finish = []
 queue_numb = '0'
 
 
@@ -47,16 +46,16 @@ def broadcast(message):
         # поэтому я сразу очищаю, чтобы второй поток не забрадся сюда
         # лютый костыль
         messages_close.clear()
-        # print('stage 3')
-        # for client in clients:
-        #     client.send(message)
-        # Вот идейно должно работать именно так
         queue_numb = str(1 - int(queue_numb))
         for i in range(len(clients)):
             if i == int(queue_numb):
                 clients[i].send(f'Close|YOU TURN'.encode('ascii'))
             else:
                 clients[i].send(f'Close|OPPONENT TURN'.encode('ascii'))
+    elif len(messages_finish) == 2:
+        messages_finish[0][1].send(messages_finish[0][0].encode('ascii'))
+        messages_finish[1][1].send(messages_finish[1][0].encode('ascii'))
+        messages_finish.clear()
 
 
 def handle(client):
@@ -69,6 +68,8 @@ def handle(client):
                 messages_cards_to_open.append(message)
             elif message == 'Close'.encode('ascii'):
                 messages_close.append(message)
+            elif 'Finish'.encode('ascii') in message:
+                messages_finish.append([message.decode('ascii'), client])
             broadcast(message)
         except Exception as ex:
             print(ex)
