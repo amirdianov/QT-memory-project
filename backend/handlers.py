@@ -131,13 +131,16 @@ class GameWindowHandlers:
                 if self.cards[self.is_chosen[0] - 1] == self.cards[self.is_chosen[1] - 1]:
                     is_mine: bool = turn == 'YOU TURN'
                     OPENED_CARDS.extend([self.cards[self.is_chosen[0] - 1], self.cards[self.is_chosen[1] - 1]])
+                    self.open_cards(is_mine)
                     if len(OPENED_CARDS) == 18:
                         lcd_number_mine: QLCDNumber = getattr(self, 'lcdNumber_2', None)
                         lcd_number_opponent: QLCDNumber = getattr(self, 'lcdNumber', None)
                         self.go_finish_from_game()
+                        print(lcd_number_mine.value(), 'МОИ ОЧКИ')
+                        print(lcd_number_opponent.value(), 'ЕГО ОЧКИ')
                         ans = lcd_number_mine.value() > lcd_number_opponent.value()
+                        print(ans)
                         self.finish_send(str(ans))
-                    else:
-                        self.open_cards(is_mine)
+
                 else:
                     self.timer.start(1000)
