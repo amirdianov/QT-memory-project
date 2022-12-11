@@ -1,8 +1,8 @@
 import socket
 import sys
 
-from PyQt6.QtCore import QThread, QTimer, pyqtSignal
-from PyQt6.QtWidgets import QMainWindow, QApplication, QStackedWidget
+from PyQt5.QtCore import QThread, QTimer, pyqtSignal
+from PyQt5.QtWidgets import QMainWindow, QApplication, QStackedWidget
 
 from backend.handlers import GameWindowHandlers
 from frontend.windows import StartWindow, GameWindow, FinishWindow
@@ -45,6 +45,11 @@ class ReceiverThread(QThread):
                     elif 'OPPONENT TURN' in message[1]:
                         ex2.queue_turn_false(message[1])
                     self.signal.emit('close|' + message[-1])
+                if 'is out' in message:
+                    player = message[message.find('<'):message.find('>')+1]
+                    if str(CLIENT) != player:
+                        ex2.go_finish_from_game()
+                        ex3.win_window()
                 if 'Finish' in message:
                     message = message.split('|')
                     if 'True' in message[1]:
@@ -97,6 +102,7 @@ class MemoryGame(GameWindow):
         self.back.clicked.connect(self.go_menu_from_game)
 
     def go_menu_from_game(self):
+        self.client.send(f'{self.client} is out'.encode('ascii'))
         window.setCurrentIndex(window.currentIndex() - 1)
 
     def open_card_number(self, num_card):
@@ -137,8 +143,10 @@ class MemoryGameFinish(FinishWindow):
         self.pushButton.clicked.connect(self.go_menu_from_finish)
 
     def lose_window(self):
+        print('lose_window method was called')
         self.setStyleSheet('background-color: rgba(252, 81, 79, 235);')
         self.label.setText('You lose...')
+        print('lose_window method was finished')
 
     def win_window(self):
         print('Я зашел в победу')

@@ -56,6 +56,9 @@ def broadcast(message):
         messages_finish[0][1].send(messages_finish[0][0].encode('ascii'))
         messages_finish[1][1].send(messages_finish[1][0].encode('ascii'))
         messages_finish.clear()
+    elif 'is out'.encode('ascii') in message:
+        for i in range(len(clients)):
+            clients[i].send(message)
 
 
 def handle(client):
