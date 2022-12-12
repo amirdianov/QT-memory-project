@@ -1,8 +1,8 @@
 import socket
 import sys
 
-from PyQt6.QtCore import QThread, QTimer, pyqtSignal
-from PyQt6.QtWidgets import QMainWindow, QApplication, QStackedWidget
+from PyQt5.QtCore import QThread, QTimer, pyqtSignal
+from PyQt5.QtWidgets import QMainWindow, QApplication, QStackedWidget
 
 from backend.handlers import GameWindowHandlers
 from frontend.windows import StartWindow, GameWindow, FinishWindow
@@ -133,12 +133,12 @@ class MemoryGame(GameWindow):
 
     def queue_turn_false(self, message: str) -> None:
         print('Я тут')
-        for i in range(1, len(GameWindowHandlers.cards) + 1):
+        for i in range(1, len(self.cards) + 1):
             getattr(self, f'pushButton_{i}', None).setEnabled(False)
 
     def queue_turn_true(self, message: str) -> None:
         print('Я тут')
-        for i in range(1, len(GameWindowHandlers.cards) + 1):
+        for i in range(1, len(self.cards) + 1):
             getattr(self, f'pushButton_{i}', None).setEnabled(True)
 
     def go_finish_from_game(self):

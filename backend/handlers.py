@@ -4,20 +4,21 @@ from random import shuffle
 from socket import socket
 from typing import Optional
 
-from PyQt6.QtGui import QIcon
-from PyQt6.QtWidgets import QPushButton, QLCDNumber, QApplication
+from PyQt5.QtGui import QIcon
+from PyQt5.QtWidgets import QPushButton, QLCDNumber, QApplication
 
 FRUITS: list[str] = [img for img in os.listdir(os.path.join('images')) if img != 'fruits.png' and img != 'images.qrc']
 
 
-
 class GameWindowHandlers:
-    cards: list[str] = [*[FRUITS[num] for num in range(9)],
-                        *[FRUITS[num] for num in range(9)]]
-    OPENED_CARDS: list[str] = []
-    # shuffle(cards)
-    is_toggled: list[bool] = [True] * 18
-    is_chosen: list[int] = []
+    def __init__(self):
+        self.OPENED_CARDS: list[str] = []
+        self.cards: list[str] = [*[FRUITS[num] for num in range(9)],
+                            *[FRUITS[num] for num in range(9)]]
+        # shuffle(cards)
+        self.is_toggled: list[bool] = [True] * 18
+        self.is_chosen: list[int] = []
+
 
     def toggle_card1(self):
         self.open_card_number(1)
@@ -133,7 +134,7 @@ class GameWindowHandlers:
                     is_mine: bool = turn == 'YOU TURN'
                     self.OPENED_CARDS.extend([self.cards[self.is_chosen[0] - 1], self.cards[self.is_chosen[1] - 1]])
                     self.open_cards(is_mine)
-                    if len(self.OPENED_CARDS) == 2:
+                    if len(self.OPENED_CARDS) == 18:
                         lcd_number_mine: QLCDNumber = getattr(self, 'lcdNumber_2', None)
                         lcd_number_opponent: QLCDNumber = getattr(self, 'lcdNumber', None)
                         self.go_finish_from_game()
