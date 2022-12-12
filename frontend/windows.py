@@ -1,8 +1,8 @@
 import sys
 # Импортируем из PyQt5.QtWidgets классы для создания приложения и виджет
-from PyQt5 import uic
-from PyQt5.QtCore import QTimer
-from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QLineEdit, QLabel, QMainWindow
+from PyQt6 import uic
+from PyQt6.QtCore import QTimer
+from PyQt6.QtWidgets import QApplication, QWidget, QPushButton, QLineEdit, QLabel, QMainWindow
 from backend.handlers import *
 
 

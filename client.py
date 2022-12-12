@@ -1,8 +1,8 @@
 import socket
 import sys
 
-from PyQt5.QtCore import QThread, QTimer, pyqtSignal
-from PyQt5.QtWidgets import QMainWindow, QApplication, QStackedWidget
+from PyQt6.QtCore import QThread, QTimer, pyqtSignal
+from PyQt6.QtWidgets import QMainWindow, QApplication, QStackedWidget
 
 from backend.handlers import GameWindowHandlers
 from frontend.windows import StartWindow, GameWindow, FinishWindow
@@ -10,7 +10,7 @@ from frontend.windows import StartWindow, GameWindow, FinishWindow
 CLIENT = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 CONNECTION = ('127.0.0.1', 5060)
 
-
+CONNECTED = False
 class ReceiverThread(QThread):
     signal: pyqtSignal = pyqtSignal(str)
 
@@ -65,8 +65,11 @@ class ReceiverThread(QThread):
 class MemoryGameStart(StartWindow):
     def __init__(self):
         super().__init__()
+        global CONNECTED
         self.client = CLIENT
-        self.client.connect(CONNECTION)
+        if not CONNECTED:
+            self.client.connect(CONNECTION)
+            CONNECTED = True
         self.start.clicked.connect(self.ready_start_game)
 
     def ready_start_game(self):
@@ -91,7 +94,9 @@ class MemoryGameStart(StartWindow):
             ex2._toggle_card(int(number), turn)
 
     def open_game(self):
-        window.setCurrentIndex(window.currentIndex() + 1)
+        ex.close()
+        ex2.show()
+        # window.setCurrentIndex(window.currentIndex() + 1)
 
 
 class MemoryGame(GameWindow):
@@ -103,7 +108,9 @@ class MemoryGame(GameWindow):
 
     def go_menu_from_game(self):
         self.client.send(f'{self.client} is out'.encode('ascii'))
-        window.setCurrentIndex(window.currentIndex() - 1)
+        ex2.close()
+        ex.show()
+        # window.setCurrentIndex(window.currentIndex() - 1)
 
     def open_card_number(self, num_card):
         super().open_card_number(num_card)
@@ -127,7 +134,9 @@ class MemoryGame(GameWindow):
 
     def go_finish_from_game(self):
         super().go_finish_from_game()
-        window.setCurrentIndex(window.currentIndex() + 1)
+        ex2.close()
+        ex3.show()
+        # window.setCurrentIndex(window.currentIndex() + 1)
 
     def finish_send(self, message_bool):
         super().finish_send(message_bool)
@@ -154,7 +163,15 @@ class MemoryGameFinish(FinishWindow):
         self.label.setText('You win!')
 
     def go_menu_from_finish(self):
-        window.setCurrentIndex(window.currentIndex() - 2)
+        global ex
+        ex3.close()
+        window.removeWidget(ex)
+
+        ex = MemoryGameStart()
+        window.insertWidget(0, ex)
+        ex.show()
+
+        # window.setCurrentIndex(window.currentIndex() - 2)
 
 
 if __name__ == '__main__':
