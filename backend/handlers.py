@@ -133,7 +133,7 @@ class GameWindowHandlers:
                     is_mine: bool = turn == 'YOU TURN'
                     self.OPENED_CARDS.extend([self.cards[self.is_chosen[0] - 1], self.cards[self.is_chosen[1] - 1]])
                     self.open_cards(is_mine)
-                    if len(self.OPENED_CARDS) == 18:
+                    if len(self.OPENED_CARDS) == 2:
                         lcd_number_mine: QLCDNumber = getattr(self, 'lcdNumber_2', None)
                         lcd_number_opponent: QLCDNumber = getattr(self, 'lcdNumber', None)
                         self.go_finish_from_game()

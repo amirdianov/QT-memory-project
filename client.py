@@ -99,7 +99,6 @@ class MemoryGameStart(StartWindow):
     def open_game(self):
         ex.close()
         ex2.show()
-        FIRST_INIT = False
     # window.setCurrentIndex(window.currentIndex() + 1)
 
 
@@ -113,11 +112,12 @@ class MemoryGame(GameWindow):
     def go_menu_from_game(self):
         self.client.send(f'{self.client} is out'.encode('ascii'))
         global ex
-        ex2.close()
-        # window.removeWidget(ex)
+        ex3.close()
+        window.removeWidget(ex)
 
         ex = MemoryGameStart()
         window.insertWidget(0, ex)
+        window.setCurrentIndex(window.currentIndex() - 1)
         ex.show()
         # window.setCurrentIndex(window.currentIndex() - 1)
 
@@ -143,9 +143,13 @@ class MemoryGame(GameWindow):
 
     def go_finish_from_game(self):
         super().go_finish_from_game()
+        global ex2
         ex2.close()
+        window.removeWidget(ex2)
+        ex2 = MemoryGame()
+        window.insertWidget(1, ex2)
         ex3.show()
-        # window.setCurrentIndex(window.currentIndex() + 1)
+        window.setCurrentIndex(window.currentIndex() + 2)
 
     def finish_send(self, message_bool):
         super().finish_send(message_bool)
@@ -174,10 +178,11 @@ class MemoryGameFinish(FinishWindow):
     def go_menu_from_finish(self):
         global ex
         ex3.close()
-        # window.removeWidget(ex)
+        window.removeWidget(ex)
 
         ex = MemoryGameStart()
         window.insertWidget(0, ex)
+        window.setCurrentIndex(window.currentIndex() - 2)
         ex.show()
 
         # window.setCurrentIndex(window.currentIndex() - 2)
