@@ -8,12 +8,13 @@ from PyQt6.QtGui import QIcon
 from PyQt6.QtWidgets import QPushButton, QLCDNumber, QApplication
 
 FRUITS: list[str] = [img for img in os.listdir(os.path.join('images')) if img != 'fruits.png' and img != 'images.qrc']
-OPENED_CARDS: list[str] = []
+
 
 
 class GameWindowHandlers:
     cards: list[str] = [*[FRUITS[num] for num in range(9)],
                         *[FRUITS[num] for num in range(9)]]
+    OPENED_CARDS: list[str] = []
     # shuffle(cards)
     is_toggled: list[bool] = [True] * 18
     is_chosen: list[int] = []
@@ -130,9 +131,9 @@ class GameWindowHandlers:
                 print('is_chosen:', self.is_chosen, self.cards)
                 if self.cards[self.is_chosen[0] - 1] == self.cards[self.is_chosen[1] - 1]:
                     is_mine: bool = turn == 'YOU TURN'
-                    OPENED_CARDS.extend([self.cards[self.is_chosen[0] - 1], self.cards[self.is_chosen[1] - 1]])
+                    self.OPENED_CARDS.extend([self.cards[self.is_chosen[0] - 1], self.cards[self.is_chosen[1] - 1]])
                     self.open_cards(is_mine)
-                    if len(OPENED_CARDS) == 18:
+                    if len(self.OPENED_CARDS) == 18:
                         lcd_number_mine: QLCDNumber = getattr(self, 'lcdNumber_2', None)
                         lcd_number_opponent: QLCDNumber = getattr(self, 'lcdNumber', None)
                         self.go_finish_from_game()

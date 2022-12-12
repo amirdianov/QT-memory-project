@@ -11,6 +11,9 @@ CLIENT = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 CONNECTION = ('127.0.0.1', 5060)
 
 CONNECTED = False
+FIRST_INIT = True
+
+
 class ReceiverThread(QThread):
     signal: pyqtSignal = pyqtSignal(str)
 
@@ -46,7 +49,7 @@ class ReceiverThread(QThread):
                         ex2.queue_turn_false(message[1])
                     self.signal.emit('close|' + message[-1])
                 if 'is out' in message:
-                    player = message[message.find('<'):message.find('>')+1]
+                    player = message[message.find('<'):message.find('>') + 1]
                     if str(CLIENT) != player:
                         ex2.go_finish_from_game()
                         ex3.win_window()
@@ -96,7 +99,8 @@ class MemoryGameStart(StartWindow):
     def open_game(self):
         ex.close()
         ex2.show()
-        # window.setCurrentIndex(window.currentIndex() + 1)
+        FIRST_INIT = False
+    # window.setCurrentIndex(window.currentIndex() + 1)
 
 
 class MemoryGame(GameWindow):
@@ -108,7 +112,12 @@ class MemoryGame(GameWindow):
 
     def go_menu_from_game(self):
         self.client.send(f'{self.client} is out'.encode('ascii'))
+        global ex
         ex2.close()
+        # window.removeWidget(ex)
+
+        ex = MemoryGameStart()
+        window.insertWidget(0, ex)
         ex.show()
         # window.setCurrentIndex(window.currentIndex() - 1)
 
@@ -165,7 +174,7 @@ class MemoryGameFinish(FinishWindow):
     def go_menu_from_finish(self):
         global ex
         ex3.close()
-        window.removeWidget(ex)
+        # window.removeWidget(ex)
 
         ex = MemoryGameStart()
         window.insertWidget(0, ex)
