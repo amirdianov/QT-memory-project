@@ -30,17 +30,17 @@ class ReceiverThread(QThread):
                     ex.open_game()
                     print('ВЫВОД СООБЩЕНИЯ О ГОТОВНОСТИ К ИГРЕ', message)
                     if 'YOU TURN' in message[1]:
-                        ex2.queue_turn_true(message[1])
-                        ex2.edit_label(True)
+                        self.signal.emit('queue_turn_true')
                     elif 'OPPONENT TURN' in message[1]:
-                        ex2.queue_turn_false(message[1])
-                        ex2.edit_label(False)
-                if 'Play' in message:
+                        self.signal.emit('queue_turn_false')
+                        # ex2.queue_turn_false(message[1])
+                        # ex2.edit_label(False)
+                elif 'Play' in message:
                     message = message.split('|')
                     # переворот карточек
                     print(f'Хочу перевернуть эту карточку {message[1]}')
                     self.signal.emit(message[1] + '|' + message[-2])
-                if 'Close' in message:
+                elif 'Close' in message:
                     message = message.split('|')
                     print(message, 'ВОТ ТАК РАЗБИЛОСЬ')
                     if 'YOU TURN' in message[1]:
@@ -48,17 +48,20 @@ class ReceiverThread(QThread):
                     elif 'OPPONENT TURN' in message[1]:
                         ex2.queue_turn_false(message[1])
                     self.signal.emit('close|' + message[-1])
-                if 'is out' in message:
+                elif 'is out' in message:
                     player = message[message.find('<'):message.find('>') + 1]
                     if str(CLIENT) != player:
-                        ex2.go_finish_from_game()
-                        ex3.win_window()
-                if 'Finish' in message:
+                        self.signal.emit('game is over')
+                        # ex2.go_finish_from_game()
+                        # ex3.win_window()
+                elif 'Finish' in message:
                     message = message.split('|')
                     if 'True' in message[1]:
-                        ex3.win_window()
+                        self.signal.emit('Finish True')
+                        # ex3.win_window()
                     elif 'False' in message[1]:
-                        ex3.lose_window()
+                        self.signal.emit('Finish False')
+                        # ex3.lose_window()
             except Exception as exc:
                 print(exc)
                 print('ОШИБКА')
@@ -85,16 +88,36 @@ class MemoryGameStart(StartWindow):
         self.receive_thread.signal.connect(self.update_window)
 
     def update_window(self, message: str) -> None:
+        global ex2
         print('!!!!updated!!!!')
-        print('message;', message)
-        if 'close' in message:
+        print('update_window message:', message)
+        if 'queue_turn' in message:
+            if 'true' in message:
+                ex2.queue_turn_true(message)
+                ex2.edit_label(True)
+            else:
+                ex2.queue_turn_false(message)
+                ex2.edit_label(False)
+        elif 'game is over' == message:
+            ex2.go_finish_from_game()
+            window.removeWidget(ex2)
+            ex2 = MemoryGame()
+            window.insertWidget(1, ex2)
+            ex3.win_window()
+        elif 'Finish' in message:
+            if 'True' in message:
+                ex3.win_window()
+            else:
+                ex3.lose_window()
+        elif 'close' in message:
             is_mine = message.split('|')[-1] == 'YOU TURN'
             print('hide_cards was called inside update_window method')
             ex2.hide_cards(is_mine=is_mine)
             return
-        number, turn = message.split('|')
-        if number in [str(i) for i in range(20)]:
-            ex2._toggle_card(int(number), turn)
+        else:
+            number, turn = message.split('|')
+            if number in [str(i) for i in range(20)]:
+                ex2._toggle_card(int(number), turn)
 
     def open_game(self):
         ex.close()
