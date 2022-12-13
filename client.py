@@ -134,13 +134,16 @@ class MemoryGame(GameWindow):
 
     def go_menu_from_game(self):
         self.client.send(f'{self.client} is out'.encode('ascii'))
-        global ex
+        global ex, ex2
         ex3.close()
         window.removeWidget(ex)
 
         ex = MemoryGameStart()
         window.insertWidget(0, ex)
-        window.setCurrentIndex(window.currentIndex() - 1)
+        window.removeWidget(ex2)
+        ex2 = MemoryGame()
+        window.insertWidget(1, ex2)
+        window.setCurrentIndex(window.currentIndex() - 2)
         ex.show()
         # window.setCurrentIndex(window.currentIndex() - 1)
 

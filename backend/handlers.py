@@ -14,7 +14,7 @@ class GameWindowHandlers:
     def __init__(self):
         self.OPENED_CARDS: list[str] = []
         self.cards: list[str] = [*[FRUITS[num] for num in range(9)],
-                            *[FRUITS[num] for num in range(9)]]
+                                 *[FRUITS[num] for num in range(9)]]
         # shuffle(cards)
         self.is_toggled: list[bool] = [True] * 18
         self.is_chosen: list[int] = []
