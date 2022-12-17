@@ -664,7 +664,7 @@ border-radius: 10px;</string>
 border-radius: 10px;</string>
               </property>
               <property name="text">
-               <string>Your choise</string>
+               <string>Your choice</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
@@ -707,7 +707,7 @@ background-color: rgba(252, 81, 79, 235);</string>
      <x>0</x>
      <y>0</y>
      <width>1100</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
